@@ -10,13 +10,16 @@
   },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.1.2",
+    "@codemirror/lang-python": "^6.1.1",
+    "@codesandbox/sandpack-react": "^1.19.0",
+    "@types/react-codemirror": "^1.0.7",
     "@uiw/react-codemirror": "^4.19.5",
     "axios": "^1.2.2",
     "codemirror": "^6.0.1",
-    "codemirror-jsx": "^0.1.0",
     "monaco-editor": "^0.34.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-live": "^3.1.1"
   },
   "devDependencies": {
     "@types/codemirror": "^5.60.6",

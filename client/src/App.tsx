@@ -12,9 +12,10 @@ import CodeMirror, { useCodeMirror } from '@uiw/react-codemirror'
 import axios from 'axios'
 import './App.css'
 import { javascript } from '@codemirror/lang-javascript';
+import Temp from './Temp';
 
 function App() {
-  const [code,setCode] = useState('function App(){ \n return (\n <div>Hello World </div> \n)}')
+  const [code,setCode] = useState('function App(){ \n return (\n <div>Hello World </div> \n )} \nexport default App')
   const handleSubmit = () => {
     axios.post('http://localhost:8080/problem')
     console.log(code)
@@ -23,26 +24,45 @@ function App() {
     setCode(value)
     console.log('value:', value);
   }, []);
+
   return (
-    <div>
-    <CodeMirror
-      value={code}
-      height="200px"
-      extensions={[javascript({ jsx: true })]}
-      onChange={onChange}
-      theme={'dark'}
-      key='sublime'
-    />
-    {/* <LiveProvider code={code}>
-        <LiveError />
-        <LivePreview />
-    </LiveProvider> */}
-    <Sandpack template="react" />;
-    <div 
-    onClick={handleSubmit} 
-    className="border-2 bg-blue-600">Submit</div>
-    </div>
-  );
+    <Temp />
+  )
+
+//   return (
+//     <div>
+//     <CodeMirror
+//       value={code}
+//       height="200px"
+//       extensions={[javascript({ jsx: true })]}
+//       onChange={onChange}
+//       theme={'dark'}
+//       key='sublime'
+//     />
+//     {/* <LiveProvider code={code}>
+//         <LiveError />
+//         <LivePreview />
+//     </LiveProvider> */}
+//     <Sandpack
+//     files={{
+//     "/App.js": code,
+//     // "/button.js": {
+//     //   code: buttonCode,
+//     //   active: true,
+//     // },
+//     // "/link.js": {
+//     //   code: linkCode,
+//     //   hidden: true,
+//     // },
+//   }}
+//   template="react"
+// />
+
+//     <div 
+//     onClick={handleSubmit} 
+//     className="border-2 bg-blue-600">Submit</div>
+//     </div>
+//   );
 }
 
 export default App
